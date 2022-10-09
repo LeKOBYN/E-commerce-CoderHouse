@@ -8,5 +8,5 @@ export default function CartWidget() {
 }
 
 const Carrito = styled.img`
-    padding-left: 60px; 
+    padding-left: 45px; 
 `
