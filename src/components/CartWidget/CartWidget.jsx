@@ -1,12 +1,25 @@
-import React from 'react'
-import styled from 'styled-components'
-export default function CartWidget() {
-  return (
-    <a href="."><Carrito className="CartWidget" src="https://img.icons8.com/glyph-neue/64/FA5252/clear-shopping-cart.png"/></a>
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { cartContext } from "../../context/CartContext";
+import "./cartwidget.css";
+function CartWidget() {
+  //const { getTotalItemCount } = useContext(cartContext);
 
-  )
+  return (
+    <div className="cont-cart">
+      <Link to="/cart" className="link">
+        <img
+          className="header-carrito"
+          src="https://img.icons8.com/ios-glyphs/30/000000/add-shopping-cart.png"
+          alt="Carrito"
+        />
+
+        {/*<strong className="num-cart">
+          {getTotalItemCount() > 0 && getTotalItemCount()}
+  </strong>*/}
+      </Link>
+    </div>
+  );
 }
 
-const Carrito = styled.img`
-    padding-left: 45px; 
-`
+export default CartWidget;
