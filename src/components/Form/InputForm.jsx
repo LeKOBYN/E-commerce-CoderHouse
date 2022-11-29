@@ -1,12 +1,11 @@
 import React from "react";
 import styled from "styled-components";
+
 function InputForm(props) {
   return (
     <InputCont>
-      <Label className="label">{props.title}</Label>
-      <Input
-        className="input"
-        required
+      <TitleLabel>{props.title}</TitleLabel>
+      <Input  required
         name={props.name}
         type="text"
         onChange={props.onChange}
@@ -16,23 +15,25 @@ function InputForm(props) {
 }
 
 export default InputForm;
+
 const InputCont = styled.div`
     width: 500px;
     margin: auto;
+    text-align:left;
 `
 
-const Label = styled.label `
+const TitleLabel = styled.label`
     font-size: 20px;
     font-weight: bold;
     margin-right:10px ;
-    color: white;
+    color: #bb1f1f;
 `
 
 const Input = styled.input`
+    display:flex;
     border: none;
     border-radius: 5px;
-    width: 150px;
+    width: 500px;
     height: 20px;
     padding: 3px;
-    margin: auto;
 `

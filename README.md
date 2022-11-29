@@ -1,3 +1,5 @@
+Hubo un error en la carpeta original del proyecto y al cargarlos desde otro directorio se subio una version erronea actualice el contenido con la version final. Disculpe las molestias. 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

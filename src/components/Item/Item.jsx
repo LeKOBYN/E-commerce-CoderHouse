@@ -2,22 +2,22 @@ import React from 'react'
 import styled from "styled-components";
 import{Link} from "react-router-dom"
 
-export default function Items(props) {
+export default function Item(props) {
   return (
     <>
     <Link to={`/gun/${props.id}`} style={{textDecoration:"none"}}>
-      <Item>
+      <Items>
           <Image  src={props.img} alt={props.title} />
           <h2>{props.title}</h2>
           <h3>${props.price}</h3>
           <p>{props.detail}</p>
           <Comprar>Comprar</Comprar>
-      </Item>
+      </Items>
     </Link>
     </>
   )
 }
-const Item=styled.div`
+const Items=styled.div`
     background-color: #d12b2b;
     color:black;
     width:250px;

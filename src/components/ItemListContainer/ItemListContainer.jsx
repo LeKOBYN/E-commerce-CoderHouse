@@ -7,21 +7,22 @@ import Loader from '../loader/Loader';
 //import { getCursos,getCursosByCategory } from '../../mockAPI/mockAPI';
 
 export default function ItemListContainer(props) {
-  const [coursesList, setItemList] = useState()
+  const [coursesList, setCoursesList] = useState()
   const {categoryID}=useParams();
   const [isLoading, setIsLoading] = useState(true);
+  
   useEffect(() => {
     if (categoryID === undefined) {
         getItem().then(
         (data)=>{
-            setItemList(data);
+            setCoursesList(data);
             setIsLoading(false)
         }
         )
     }
     else{
         getItemByCategory(categoryID).then((data)=>{
-            setItemList(data);
+            setCoursesList(data);
         })
     }
 },[categoryID])

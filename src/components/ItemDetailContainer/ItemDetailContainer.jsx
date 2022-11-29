@@ -1,28 +1,32 @@
-import React,{useEffect,useState} from 'react'
-import styled from "styled-components";
-import { getSingleCurso } from "../../services/firebase";
-import CardDetail from './ItemDetail';
+import React from 'react';
+import {useEffect,useState} from 'react'
+import { getSingleItem } from "../../services/firebase";
+import ItemDetail from './ItemDetail';
 import {useParams} from 'react-router-dom';
 
-
-export default function ItemDetailContainer(props) {
-const [item,setItem]=useState([]);
-
-
-const {id}=useParams();
+export default function ItemDetailContainer() {
+    const [item,setItem]=useState([]);
+    const [feedbackMsg,setFeedbackMsg] = useState(null);
+    const {id}=useParams();
 
     useEffect(()=>{
-        getSingleCurso(id).then((data)=>{
-            setItem(data);
+        getSingleItem(id).then((data)=>{
+              setItem(data);
         })
+        .catch((error)=>{
+          setFeedbackMsg(error.message)
+        });
     },[id]);
 
-    return (
+      return(
         <>
-            <>
-                <CardDetail title={item.title} img={item.img} price={item.price} detail={item.detail} stock={item.stock}/> 
-                {/*<ItemCount stock={item.stock}/>*/} 
-            </>
+            {feedbackMsg !== null ? (
+            <h4>Error {feedbackMsg}</h4>
+        ) : (
+          <ItemDetail item={item} />
+        )}
         </>
       )
+      
 }
+

@@ -1,16 +1,15 @@
-/*import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { createBuyOrder } from "../../services/firebase";
 import { useNavigate } from "react-router-dom";
-//import "sweetalert2/src/sweetalert2.scss";
-//import Swal from "sweetalert2/dist/sweetalert2.js";
+import "sweetalert2/src/sweetalert2.scss";
+import Swal from "sweetalert2/dist/sweetalert2.js";
 import InputForm from "./InputForm";
-import { useContext } from "react";
-import { CartContext } from "../../context/CartContext";
+import { cartContext } from "../../context/CartContext";
 import Button from "../Button/Button";
 import styled from "styled-components";
 export default function UserForm() {
   const navigate = useNavigate();
-  const { cart, getTotalPrice, clearCart } = useContext(CartContext);
+  const { cart, getTotalPrice, clearCart } = useContext(cartContext);
 
   const [userData, setUserData] = useState({
     name: "",
@@ -40,16 +39,16 @@ export default function UserForm() {
         title: "Gracias!",
         text: "Gracias por tu compra",
         icon: "success",
-        confirmButtonText: "Cool",
+        confirmButtonText: "God",
       }).then((result) => {
-        navigate(`/ThankYou/${respuesta}`);
+        navigate(`/Checkout/${respuesta}`);
       });
     });
   }
 
   return (
-    <ContForm onSubmit={onSubmit}>
-      <H3 className="h3">Complete con su datos</H3>
+    <FormCont onSubmit={onSubmit}>
+      <SubTitle>Ingrese sus datos!</SubTitle>
       <InputForm
         value={userData.name}
         title="Nombre"
@@ -68,12 +67,12 @@ export default function UserForm() {
         name="phone"
         onChange={onInputChange}
       />
-      <Button type="submit">Crear orden</Button>
-    </ContForm>
+      <Button type="submit" title="Crear orden"></Button>
+    </FormCont>
   );
 }
 
-const ContForm = styled.form`
+const FormCont = styled.form`
     width: 700px;
     background-color: rgba(17, 13, 13, 0.8);
     border-radius: 15px;
@@ -87,9 +86,24 @@ const ContForm = styled.form`
     padding: 10px;
 `
 
-const H3 = styled.h3`
-    margin: 0;
+const SubTitle = styled.h3`
+margin: 0;
     color: white;
     font-size: 25px;
 `
-*/
+
+/*
+const Boton=styled.button`
+
+background-color: rgb(236, 94, 75);
+    width: auto;
+    height: 45px;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 1rem;
+    :hover{
+      background-color: rgb(61, 22, 12);
+      color: white;
+    }
+`*/
