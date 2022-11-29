@@ -1,6 +1,6 @@
-//import React from 'react'
+import React from 'react'
 import styled from "styled-components"
-import Card from "../Card/Card"
+import Card from "../Item/Item"
 
 export default function ItemList(props) {
   return (
@@ -27,7 +27,7 @@ export default function ItemList(props) {
 
 const FlexWrapper=styled.div`
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     margin:3rem auto;
     width: 80%;
     flex-wrap: wrap;

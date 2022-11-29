@@ -1,5 +1,6 @@
+import React from 'react';
 import styled from 'styled-components'
-import CartWidget from '../CartWidget/CartWidget';
+import CartWidget from '../CartView/CartWidget';
 import { Link } from 'react-router-dom';
 
 export default function Navbar(){
@@ -13,12 +14,10 @@ export default function Navbar(){
 
 
                 <ListaNav>
-                   <Link to="/"><ItemListaNav>Home       </ItemListaNav></Link>
-                   <Link to="/category/programacion"><ItemListaNav> Programacion       </ItemListaNav></Link>
-                   <Link to="/category/diseño"><ItemListaNav> Diseño      </ItemListaNav></Link>
-                   <Link to="#"><ItemListaNav> Contact    </ItemListaNav></Link>
-                   <Link to="#"><ItemListaNav> Blog       </ItemListaNav></Link>
-                   <ItemListaNav><CartWidget/></ItemListaNav>
+                   <Link to="/"><ItemListaNav>Home </ItemListaNav></Link>
+                   <Link to="/category/shotgun"><ItemListaNav> Shotguns </ItemListaNav></Link>
+                   <Link to="/category/sniper"><ItemListaNav> Snipers </ItemListaNav></Link>
+                   {/**/}<ItemListaNav><CartWidget/></ItemListaNav>{/**/}
                 </ListaNav>
                 
             </NavContainer>
